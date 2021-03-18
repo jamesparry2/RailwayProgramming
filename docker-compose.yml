@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+  blog_db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: "blog_database"
+      MYSQL_USER: "blog_admin"
+      MYSQL_PASSWORD: "blog_pwd"
+      MYSQL_ROOT_PASSWORD: "blog_root_pwd"
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    volumes:
+      - blog-db:/var/lib/mysql
+volumes:
+  blog-db:
